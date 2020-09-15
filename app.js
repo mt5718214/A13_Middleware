@@ -2,6 +2,20 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.use(function (req, res, next) {
+  const time = new Date()
+  const year = time.getFullYear()
+  const month = time.getMonth() + 1
+  const date = time.getDate()
+  const hour = time.getHours()
+  const minute = time.getMinutes()
+  const second = time.getSeconds()
+  const method = req.method
+  const url = req.url
+
+  console.log(`${year}-${month}-${date} ${hour}:${minute}:${second} | ${method} from ${url}`)
+  next()
+})
 
 app.get('/', (req, res) => {
   res.send('列出全部 Todo')
