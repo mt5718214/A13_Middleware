@@ -13,8 +13,7 @@ app.use(function (req, res, next) {
   const method = req.method
   const url = req.url
 
-  console.log(`${year}-${month}-${date} ${hour}:${minute}:${second} | ${method} from ${url}`)
-  next()
+  console.log(`Q1: 伺服器接收請求紀錄: ${year}-${month}-${date} ${hour}:${minute}:${second} | ${method} from ${url}`)
 })
 
 app.get('/', (req, res) => {
